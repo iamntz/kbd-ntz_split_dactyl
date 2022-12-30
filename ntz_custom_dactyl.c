@@ -1,4 +1,5 @@
 #include "ntz_custom_dactyl.h"
+#include "quantum.h"
 
 bool get_ignore_mod_tap_interrupt(uint16_t keycode, keyrecord_t *record)
 {
@@ -51,4 +52,3 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record)
     return false;
   }
 }
-
