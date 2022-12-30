@@ -6,4 +6,4 @@ qmk json2c "$customConfigPath/ntz.json" > "$customConfigPath/keymaps/default/key
 
 qmk compile -kb ntz_custom_dactyl -km default
 
-qmk flash -kb ntz_custom_dactyl -km default
+# qmk flash -kb ntz_custom_dactyl -km default

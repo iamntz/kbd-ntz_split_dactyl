@@ -52,15 +52,3 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record)
   }
 }
 
-// Tap Dance declarations
-enum
-{
-  TD_ESC_CAPS,
-};
-
-// Tap Dance definitions
-qk_tap_dance_action_t tap_dance_actions[] = {
-    // Tap once for Escape, twice for Caps Lock
-    [TD_ESC_CAPS] = ACTION_TAP_DANCE_DOUBLE(KC_ESC, KC_CAPS),
-};
-

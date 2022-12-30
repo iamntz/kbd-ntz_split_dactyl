@@ -20,14 +20,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "config_common.h"
 
-// #define PRODUCT_ID  0x3636ł
-// #define DEVICE_VER  0x0001
-// #define PRODUCT     "Dactyl-Manuform (6x6)"
-
-/* USB Device descriptor parameter */
-
-/* key matrix size */
-// Rows are doubled-up
 #define MATRIX_ROWS 14
 #define MATRIX_COLS 6
 
@@ -38,15 +30,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define MASTER_RIGHT
 
-// #define PERMISSIVE_HOLD
-// #define IGNORE_MOD_TAP_INTERRUPT 
-
-// #define TAPPING_FORCE_HOLDK
-
 #define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD
 
 #define TAPPING_TERM_PER_KEY // get_tapping_term
 
+// #define PERMISSIVE_HOLD
 #define PERMISSIVE_HOLD_PER_KEY // get_permissive_hold
+
+// #define IGNORE_MOD_TAP_INTERRUPT 
 #define IGNORE_MOD_TAP_INTERRUPT_PER_KEY // get_ignore_mod_tap_interrupt
+
 #define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
+
+#define AUTO_SHIFT_TIMEOUT 200
