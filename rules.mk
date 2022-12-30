@@ -8,10 +8,10 @@ SPLIT_KEYBOARD = yes
 CAPS_WORD_ENABLE = yes
 
 # https://github.com/qmk/qmk_firmware/blob/master/docs/feature_auto_shift.md#configuring-auto-shift
-AUTO_SHIFT_ENABLE = yes
+# AUTO_SHIFT_ENABLE = yes
 
 # https://github.com/qmk/qmk_firmware/blob/master/docs/feature_tap_dance.md
-TAP_DANCE_ENABLE = yes
+# TAP_DANCE_ENABLE = yes
 
 # MCU name
 MCU = atmega32u4
