@@ -15,9 +15,7 @@
         "time_to_max": 60,
         "wheel_delay": 0
     },
-    "tapping": {
-        "permissive_hold": true
-    },
+
     "features": {
         "bootmagic": false,
         "command": true,

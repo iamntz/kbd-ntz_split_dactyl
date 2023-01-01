@@ -18,5 +18,3 @@ MCU = atmega32u4
 
 # Bootloader selection
 BOOTLOADER = caterina
-
-SRC += inc/tap-dance.c

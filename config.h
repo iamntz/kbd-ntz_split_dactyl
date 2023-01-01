@@ -24,7 +24,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MATRIX_COLS 6
 
 #undef SOFT_SERIAL_PIN
-#define SOFT_SERIAL_PIN D2     // USART TX pin
+#define SOFT_SERIAL_PIN D2 // USART TX pin
 
 #define USE_SERIAL
 
@@ -32,18 +32,26 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD
 
+//===================================================================================================//
+// https://github.com/qmk/qmk_firmware/blob/master/docs/tap_hold.md#tapping-term
 #define TAPPING_TERM_PER_KEY // get_tapping_term
+//===================================================================================================//
 
-// #define PERMISSIVE_HOLD
-#define PERMISSIVE_HOLD_PER_KEY // get_permissive_hold
+//===================================================================================================//
+// https://github.com/qmk/qmk_firmware/blob/master/docs/tap_hold.md#permissive-hold
+#define PERMISSIVE_HOLD
+// #define PERMISSIVE_HOLD_PER_KEY // get_permissive_hold
+//===================================================================================================//
 
-// #define IGNORE_MOD_TAP_INTERRUPT 
-#define IGNORE_MOD_TAP_INTERRUPT_PER_KEY // get_ignore_mod_tap_interrupt
+//===================================================================================================//
+// https://github.com/qmk/qmk_firmware/blob/master/docs/tap_hold.md#ignore-mod-tap-interrupt
+#define IGNORE_MOD_TAP_INTERRUPT
+// #define IGNORE_MOD_TAP_INTERRUPT_PER_KEY // get_ignore_mod_tap_interrupt
+//===================================================================================================//
 
-#define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
-
-// #define AUTO_SHIFT_TIMEOUT 180
-
-
-// define tap dance codes here (instead of using enums)
-#define TD_ESC_CAPS 0
+//===================================================================================================//
+// https://github.com/qmk/qmk_firmware/blob/master/docs/tap_hold.md#hold-on-other-key-press
+// enabling this globally will make quick tap of shift + semicolon(layer) + letters will trigger the layer instead
+// #define HOLD_ON_OTHER_KEY_PRESS
+#define HOLD_ON_OTHER_KEY_PRESS_PER_KEY // get_hold_on_other_key_press
+//===================================================================================================//
