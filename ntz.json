@@ -77,7 +77,7 @@
       "LT(2,KC_ENT)",
       "LT(2,KC_ESC)",
       "MO(1)",
-      "KC_NO",
+      "QK_LEAD",
       "LT(3,KC_DEL)",
       "MO(3)",
       "MO(4)",

@@ -55,3 +55,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #define HOLD_ON_OTHER_KEY_PRESS
 #define HOLD_ON_OTHER_KEY_PRESS_PER_KEY // get_hold_on_other_key_press
 //===================================================================================================//
+
+//===================================================================================================//
+// https://docs.qmk.fm/#/feature_leader_key
+#define LEADER_TIMEOUT 800
+//===================================================================================================//
+
+#define NTZ_LAYER_NAV = 1
+#define NTZ_LAYER_SYMBOLS = 2
+#define NTZ_LAYER_MEDIA = 3
+#define NTZ_LAYER_STORM_DEBUGGER = 4
+#define NTZ_LAYER_WINDOWS_NAV = 5

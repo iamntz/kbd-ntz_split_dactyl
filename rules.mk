@@ -18,3 +18,5 @@ MCU = atmega32u4
 
 # Bootloader selection
 BOOTLOADER = caterina
+
+LEADER_ENABLE = yes
