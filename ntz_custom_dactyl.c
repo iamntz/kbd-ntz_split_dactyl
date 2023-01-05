@@ -7,21 +7,33 @@
 #include "inc/hold_on_other_key_press.c"
 #include "inc/leader_key.c"
 
-bool maybe_deactivate_mod_key_on_alt_gr(uint16_t alternateKeycode, uint8_t mods, uint16_t keycode, keyrecord_t *record)
+bool maybe_deactivate_mod_key_on_mod_key(uint16_t alternateKeycode, uint16_t whenModKeyCodeIsActive, uint16_t realKeyCode, keyrecord_t *record, uint16_t extraMods)
 {
-  if (!((mods & MOD_BIT(KC_RALT)) == MOD_BIT(KC_RALT)))
+  const uint8_t mods = get_mods() | get_oneshot_mods();
+
+  if (!((mods & MOD_BIT(whenModKeyCodeIsActive)) == MOD_BIT(whenModKeyCodeIsActive)))
   {
     return true;
   }
 
   if (record->event.pressed)
   {
+    if (extraMods > 0)
+    {
+      register_mods(extraMods);
+    }
+
     register_code(alternateKeycode);
-    unregister_code(keycode);
+    unregister_code(realKeyCode);
   }
   else
   {
     unregister_code(alternateKeycode);
+
+    if (extraMods > 0)
+    {
+      unregister_mods(extraMods);
+    }
   }
 
   return false;
@@ -30,15 +42,16 @@ bool maybe_deactivate_mod_key_on_alt_gr(uint16_t alternateKeycode, uint8_t mods,
 // https://docs.qmk.fm/#/feature_advanced_keycodes?id=alt-escape-for-alt-tab
 bool process_record_user(uint16_t keycode, keyrecord_t *record)
 {
-  const uint8_t mods = get_mods() | get_oneshot_mods();
 
   switch (keycode)
   {
   case KC_LGUI:
-    return maybe_deactivate_mod_key_on_alt_gr(KC_LCBR, mods, keycode, record);
+    return maybe_deactivate_mod_key_on_mod_key(KC_LCBR, KC_RALT, keycode, record, 0) &&
+        maybe_deactivate_mod_key_on_mod_key(KC_TAB, KC_LCTL, keycode, record, MOD_MASK_SHIFT) &&
+        maybe_deactivate_mod_key_on_mod_key(KC_TAB, KC_LALT, keycode, record, MOD_MASK_SHIFT);
 
   case KC_TAB:
-    return maybe_deactivate_mod_key_on_alt_gr(KC_RCBR, mods, keycode, record);
+    return maybe_deactivate_mod_key_on_mod_key(KC_RCBR, KC_RALT, keycode, record, 0);
   }
 
   return true;
