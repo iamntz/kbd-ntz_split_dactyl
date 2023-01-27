@@ -66,3 +66,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define NTZ_LAYER_MEDIA = 3
 #define NTZ_LAYER_STORM_DEBUGGER = 4
 #define NTZ_LAYER_WINDOWS_NAV = 5
+
+enum custom_keycodes
+{
+  NTZ_ARROWS,
+  NTZ_DIR_UP,
+  NTZ_CD_UP,
+  NTZ_HOME,
+};

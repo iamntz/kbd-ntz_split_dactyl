@@ -15,6 +15,21 @@
 bool process_record_user(uint16_t keycode, keyrecord_t *record)
 {
 
+  if (record->event.pressed)
+  {
+    switch (keycode)
+    {
+    case NTZ_HOME:
+      return ntz_send_string_with_mod("~/", "cd ~/");
+
+    case NTZ_CD_UP:
+      return ntz_send_string_with_mod("../", "cd ../");
+
+    case NTZ_ARROWS:
+      return ntz_send_string_with_mod("=>", "<=>");
+    }
+  }
+
   switch (keycode)
   {
   case KC_A ... KC_Z:
@@ -23,7 +38,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
   case KC_F24:
     if ((keyboard_report->mods & MODS_MASK) && record->event.pressed)
       toggle_sarcasm_mode();
-      return true;
+    return true;
     break;
 
   case KC_LGUI:
