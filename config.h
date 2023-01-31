@@ -61,12 +61,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define LEADER_TIMEOUT 800
 //===================================================================================================//
 
-#define NTZ_LAYER_NAV = 1
-#define NTZ_LAYER_SYMBOLS = 2
-#define NTZ_LAYER_MEDIA = 3
-#define NTZ_LAYER_STORM_DEBUGGER = 4
-#define NTZ_LAYER_WINDOWS_NAV = 5
-
 enum custom_keycodes
 {
   NTZ_ARROWS,
