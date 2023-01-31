@@ -25,8 +25,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
     case NTZ_CD_UP:
       return ntz_send_string_with_mod("../", "cd ../");
 
-    case NTZ_ARROWS:
-      return ntz_send_string_with_mod("=>", "<=>");
+      // case NTZ_ARROWS:
+      //   return ntz_send_string_with_mod("=>", "<=>");
     }
   }
 

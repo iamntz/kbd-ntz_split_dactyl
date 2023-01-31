@@ -3,6 +3,7 @@
     "keyboard_name": "ntz_custom_dactyl",
     "maintainer": "iamntz",
     "bootloader": "caterina",
+    "processor": "atmega32u4",
     "diode_direction": "ROW2COL",
     "debounce": 5,
     "split": {
@@ -31,7 +32,6 @@
             "B6"
         ]
     },
-    "processor": "atmega32u4",
     "caps_word": {
         "enabled": true,
         "double_tap_shift_turns_on": true
@@ -41,7 +41,7 @@
         "delay": 0,
         "interval": 20,
         "max_speed": 7,
-        "time_to_max": 60,
+        "time_to_max": 200,
         "wheel_delay": 0
     },
     "features": {
@@ -59,6 +59,7 @@
         "hold_on_other_key_press_per_key": true
     },
     "leader_key": {
+        "timing": true,
         "timeout": 800
     },
     "usb": {

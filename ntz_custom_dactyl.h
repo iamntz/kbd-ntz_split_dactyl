@@ -9,6 +9,11 @@ enum custom_keycodes
     NTZ_HOME,
 };
 
+enum
+{
+    NTZ_EMOJI,
+};
+
 #define XXX KC_NO
 
 #define LAYOUT_6x6( \
