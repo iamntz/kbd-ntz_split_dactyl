@@ -5,24 +5,12 @@
     "bootloader": "caterina",
     "diode_direction": "ROW2COL",
     "debounce": 5,
-    "soft_serial_pin": "D0",
-
-    "mouse_key": {
+    "split": {
         "enabled": true,
-        "delay": 0,
-        "interval": 20,
-        "max_speed": 7,
-        "time_to_max": 60,
-        "wheel_delay": 0
-    },
-
-    "features": {
-        "bootmagic": false,
-        "command": true,
-        "console": false,
-        "extrakey": true,
-        "mousekey": true,
-        "nkro": false
+        "soft_serial_pin": "D2",
+        "transport": {
+            "protocol": "serial"
+        }
     },
     "matrix_pins": {
         "cols": [
@@ -44,7 +32,35 @@
         ]
     },
     "processor": "atmega32u4",
-    "url": "",
+    "caps_word": {
+        "enabled": true,
+        "double_tap_shift_turns_on": true
+    },
+    "mouse_key": {
+        "enabled": true,
+        "delay": 0,
+        "interval": 20,
+        "max_speed": 7,
+        "time_to_max": 60,
+        "wheel_delay": 0
+    },
+    "features": {
+        "bootmagic": false,
+        "command": true,
+        "console": false,
+        "extrakey": true,
+        "mousekey": true,
+        "nkro": false
+    },
+    "tapping": {
+        "permissive_hold": true,
+        "term_per_key": true,
+        "ignore_mod_tap_interrupt": true,
+        "hold_on_other_key_press_per_key": true
+    },
+    "leader_key": {
+        "timeout": 800
+    },
     "usb": {
         "device_version": "1.0.0",
         "pid": "0x3636",
@@ -661,5 +677,3 @@
         }
     }
 }
-
-                

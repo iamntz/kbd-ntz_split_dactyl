@@ -2,10 +2,10 @@
 #   change yes to no to disable
 #
 
-SPLIT_KEYBOARD = yes
+# SPLIT_KEYBOARD = yes
 
 # https://docs.qmk.fm/#/feature_caps_word
-CAPS_WORD_ENABLE = yes
+# CAPS_WORD_ENABLE = yes
 
 # https://github.com/qmk/qmk_firmware/blob/master/docs/feature_auto_shift.md#configuring-auto-shift
 # AUTO_SHIFT_ENABLE = yes

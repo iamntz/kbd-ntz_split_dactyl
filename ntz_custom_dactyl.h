@@ -1,6 +1,13 @@
 #pragma once
 #include "quantum.h"
 
+enum custom_keycodes
+{
+    NTZ_ARROWS,
+    NTZ_DIR_UP,
+    NTZ_CD_UP,
+    NTZ_HOME,
+};
 
 #define XXX KC_NO
 
