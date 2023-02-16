@@ -7,6 +7,8 @@ enum custom_keycodes
     NTZ_DIR_UP,
     NTZ_CD_UP,
     NTZ_HOME,
+    NTZ_PHP_OPEN,
+    NTZ_PHP_CLOSE,
 };
 
 enum
