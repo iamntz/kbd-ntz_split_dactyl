@@ -53,20 +53,24 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
     //   break;
 
   case KC_LGUI:
-    return maybe_deactivate_mod_key_on_mod_key(KC_LCBR, KC_RALT, keycode, record, 0) &&             // Instead of GUI Press [ when altGR is pressed ( for „)
-           maybe_deactivate_mod_key_on_mod_key(KC_TAB, KC_LCTL, keycode, record, MOD_MASK_SHIFT) && // Press shift+tab when ctrl is active
-           maybe_deactivate_mod_key_on_mod_key(KC_TAB, KC_LALT, keycode, record, MOD_MASK_SHIFT)    // press shift+tab when alt is active
-        ;
-
+    if (maybe_deactivate_mod_key_on_mod_key(KC_LCBR, KC_RALT, keycode, record, 0) ||                 // Instead of GUI Press [ when altGR is pressed ( for „)
+        maybe_deactivate_mod_key_on_mod_key(KC_TAB, KC_LCTL, keycode, record, MOD_MASK_SHIFT) || // Press shift+tab when ctrl is active
+        maybe_deactivate_mod_key_on_mod_key(KC_TAB, KC_LALT, keycode, record, MOD_MASK_SHIFT)               // press shift+tab when alt is active;
+    )
+    {
+      return false;
+    }
   case KC_TAB:
-    return maybe_deactivate_mod_key_on_mod_key(KC_RCBR, KC_RALT, keycode, record, 0); // // Press ] when altGR is pressed ( for ”)
-
+    if (maybe_deactivate_mod_key_on_mod_key(KC_RCBR, KC_RALT, keycode, record, 0)) // // Press ] when altGR is pressed ( for ”)
+    {
+      return false;
+    }
   }
 
   return true;
 }
 
-const key_override_t ntz_override_1 = ko_make_basic(MOD_BIT(KC_RALT), KC_Z, RALT(KC_5)); // Press alt gr + B for »
+const key_override_t ntz_override_1 = ko_make_basic(MOD_BIT(KC_RALT), KC_Z, RALT(KC_5));    // Press alt gr + B for »
 const key_override_t ntz_override_3 = ko_make_basic(MOD_BIT(KC_RALT), KC_B, RALT(KC_DOT));  // Press alt gr + B for »
 const key_override_t ntz_override_4 = ko_make_basic(MOD_BIT(KC_RALT), KC_V, RALT(KC_COMM)); // Press alt gr + V for «
 
