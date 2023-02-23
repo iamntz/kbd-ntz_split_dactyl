@@ -8,9 +8,9 @@
 #include "inc/hold_on_other_key_press.c"
 // #include "inc/leader_key.c"
 #include "inc/utils/maybe_deactivate_mod_key_on_mod_key.c"
-#include "inc/utils/sarcasm_mode.c"
+// #include "inc/utils/sarcasm_mode.c"
 
-#define MODS_MASK (MOD_BIT(KC_LSFT) | MOD_BIT(KC_LCTL))
+// #define MODS_MASK (MOD_BIT(KC_LSFT) | MOD_BIT(KC_LCTL))
 
 // https://docs.qmk.fm/#/feature_advanced_keycodes?id=alt-escape-for-alt-tab
 bool process_record_user(uint16_t keycode, keyrecord_t *record)
@@ -61,44 +61,19 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
   case KC_TAB:
     return maybe_deactivate_mod_key_on_mod_key(KC_RCBR, KC_RALT, keycode, record, 0); // // Press ] when altGR is pressed ( for ”)
 
-  case KC_B:
-    return maybe_deactivate_mod_key_on_mod_key(KC_DOT, KC_RALT, keycode, record, 0); // // Press alt gr + B for »
-
-  case KC_V:
-    return maybe_deactivate_mod_key_on_mod_key(KC_COMM, KC_RALT, keycode, record, 0); // Press alt gr + V for «
   }
 
   return true;
 }
 
-void keyboard_post_init_user(void)
-{
-  // Customise these values to desired behaviour
-  debug_enable = true;
-  debug_matrix = true;
-  debug_keyboard = true;
-  debug_mouse = true;
-}
+const key_override_t ntz_override_1 = ko_make_basic(MOD_BIT(KC_RALT), KC_Z, RALT(KC_5)); // Press alt gr + B for »
+const key_override_t ntz_override_3 = ko_make_basic(MOD_BIT(KC_RALT), KC_B, RALT(KC_DOT));  // Press alt gr + B for »
+const key_override_t ntz_override_4 = ko_make_basic(MOD_BIT(KC_RALT), KC_V, RALT(KC_COMM)); // Press alt gr + V for «
 
-// void post_process_record_user(uint16_t keycode, keyrecord_t *record)
-// {
-//   switch (keycode)
-//   {
-//   case KC_A ... KC_Z:
-//     maybe_type_in_sarcasm_mode_post(keycode, record);
-//   }
-// }
-
-// const key_override_t ntz_override_1 = ko_make_basic(KC_RALT, KC_LGUI, KC_LCBR); // Instead of GUI Press [ when altGR is pressed ( for „)
-// const key_override_t ntz_override_2 = ko_make_basic(KC_RALT, KC_TAB, KC_RCBR);  // Instead of GUI Press [ when altGR is pressed ( for ”)
-// const key_override_t ntz_override_3 = ko_make_basic(KC_RALT, KC_B, KC_DOT);     // Press alt gr + B for »
-// const key_override_t ntz_override_4 = ko_make_basic(KC_RALT, KC_V, KC_COMM);    // Press alt gr + V for «
-
-// // This globally defines all key overrides to be used
-// const key_override_t **key_overrides = (const key_override_t *[]){
-//     &ntz_override_1,
-//     &ntz_override_2,
-//     &ntz_override_3,
-//     &ntz_override_4,
-//     NULL // Null terminate the array of overrides!
-// };
+// This globally defines all key overrides to be used
+const key_override_t **key_overrides = (const key_override_t *[]){
+    &ntz_override_1,
+    &ntz_override_3,
+    &ntz_override_4,
+    NULL // Null terminate the array of overrides!
+};

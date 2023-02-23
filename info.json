@@ -46,7 +46,7 @@
     },
     "features": {
         "bootmagic": false,
-        "command": true,
+        "command": false,
         "console": false,
         "extrakey": true,
         "mousekey": true,
