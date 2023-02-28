@@ -1,16 +1,15 @@
 bool maybe_deactivate_mod_key_on_mod_key(uint16_t alternateKeycode, uint16_t whenModKeyCodeIsActive, uint16_t realKeyCode, keyrecord_t *record, uint16_t withModifier)
 {
-  const uint8_t mods = get_mods() | get_oneshot_mods();
+  const uint8_t mods = get_mods() | get_oneshot_mods() | get_weak_mods();
 
   if (!((mods & MOD_BIT(whenModKeyCodeIsActive)) == MOD_BIT(whenModKeyCodeIsActive)))
   {
     return false;
   }
 
-  unregister_code(realKeyCode);
-
   if (record->event.pressed)
   {
+    unregister_code(realKeyCode);
     register_mods(withModifier);
     register_code(alternateKeycode);
   }

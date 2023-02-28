@@ -62,6 +62,10 @@
         "timing": true,
         "timeout": 800
     },
+    "combo": {
+        "term": 200,
+        "count": 2
+    },
     "usb": {
         "device_version": "1.0.0",
         "pid": "0x3636",
