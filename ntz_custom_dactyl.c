@@ -14,6 +14,7 @@
 // #include "inc/utils/sarcasm_mode.c"
 
 // #define MODS_MASK (MOD_BIT(KC_LSFT) | MOD_BIT(KC_LCTL))
+uint8_t mod_state;
 
 // https://docs.qmk.fm/#/feature_advanced_keycodes?id=alt-escape-for-alt-tab
 bool process_record_user(uint16_t keycode, keyrecord_t *record)
@@ -56,6 +57,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
       return ntz_send_string_with_mod("?>", "?>");
     }
   }
+  mod_state = get_mods();
 
   switch (keycode)
   {
@@ -69,13 +71,21 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
     //   break;
 
   case KC_LGUI:
-    if (maybe_deactivate_mod_key_on_mod_key(KC_LCBR, KC_RALT, keycode, record, 0) ||             // Instead of GUI Press [ when altGR is pressed ( for „)
-        maybe_deactivate_mod_key_on_mod_key(KC_TAB, KC_LCTL, keycode, record, MOD_MASK_SHIFT) || // Press shift+tab when ctrl is active
-        maybe_deactivate_mod_key_on_mod_key(KC_TAB, KC_LALT, keycode, record, MOD_MASK_SHIFT)    // press shift+tab when alt is active;
-    )
+    if (maybe_deactivate_mod_key_on_mod_key(KC_LCBR, KC_RALT, keycode, record, 0)) // Instead of GUI Press [ when altGR is pressed ( for „)
     {
       return false;
     }
+
+    if (record->event.pressed)
+    {
+      if (mod_state & MOD_MASK_CTRL || // Press shift+tab when ctrl or alt are active
+          mod_state & MOD_MASK_ALT)
+      {
+        tap_code16(LSFT(KC_TAB));
+        return false;
+      }
+    }
+
   case KC_TAB:
     if (maybe_deactivate_mod_key_on_mod_key(KC_RCBR, KC_RALT, keycode, record, 0)) // // Press ] when altGR is pressed ( for ”)
     {
