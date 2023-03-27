@@ -18,9 +18,26 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
-#include "config_common.h"
+// #include "config_common.h"
 
 #define MASTER_RIGHT
+
+#define PIMORONI_TRACKBALL_SCALE 10
+
+#define POINTING_DEVICE_INVERT_X true
+#define POINTING_DEVICE_INVERT_Y true 
+// #define POINTING_DEVICE_AUTO_MOUSE_ENABLE
+
+#define TRACKBALL_LED_TIMEOUT 5000 // time in milliseconds
+
+#ifndef TRACKBALL_ADDRESS
+#define TRACKBALL_ADDRESS 0x0A
+#endif
+
+#define TRACKBALL_WRITE ((TRACKBALL_ADDRESS << 1) | I2C_WRITE)
+#define TRACKBALL_READ ((TRACKBALL_ADDRESS << 1) | I2C_READ)
+
+#define MOUSE_EXTENDED_REPORT true
 
 //===================================================================================================//
 // https://github.com/qmk/qmk_firmware/blob/master/docs/tap_hold.md#tapping-term

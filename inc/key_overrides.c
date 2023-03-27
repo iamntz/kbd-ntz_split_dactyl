@@ -9,5 +9,5 @@ const key_override_t **key_overrides = (const key_override_t *[]){
     &ntz_override_1,
     &ntz_override_3,
     &ntz_override_4,
-    NULL // Null terminate the array of overrides!
+        NULL // Null terminate the array of overrides!
 };
