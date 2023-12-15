@@ -3,17 +3,11 @@
 
 enum custom_keycodes
 {
-    NTZ_ARROWS,
-    NTZ_DIR_UP,
-    NTZ_CD_UP,
     NTZ_HOME,
-    NTZ_PHP_OPEN,
-    NTZ_PHP_CLOSE,
+    NTZ_CD_UP,
 
-    NTZ_ARROWS_DOUBLE,
-    NTZ_ARROWS_SINGLE,
-    NTZ_PHP_OPEN_SHORT,
-    NTZ_PHP_OPEN,
+    NTZ_ARROWS,
+    NTZ_PHP_TAGS,
 
     NTZ_TD_CLICK
 };

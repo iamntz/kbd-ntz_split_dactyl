@@ -8,7 +8,7 @@
     "debounce": 5,
     "split": {
         "enabled": true,
-        "soft_serial_pin": "D2",
+        "soft_serial_pin": "D3",
         "transport": {
             "protocol": "serial"
         }
@@ -46,17 +46,16 @@
     },
     "features": {
         "bootmagic": false,
-        "command": false,
         "console": false,
         "extrakey": true,
-        "mousekey": true,
-        "nkro": false
+        "mousekey": false,
+        "nkro": true
     },
     "tapping": {
-        "permissive_hold": true,
-        "term_per_key": true,
-        "ignore_mod_tap_interrupt": true,
-        "hold_on_other_key_press_per_key": true
+        "permissive_hold": false,
+        "term_per_key": false,
+        "ignore_mod_tap_interrupt": false,
+        "hold_on_other_key_press_per_key": false
     },
     "leader_key": {
         "timing": true,

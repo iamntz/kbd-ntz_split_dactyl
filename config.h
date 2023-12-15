@@ -20,13 +20,19 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // #include "config_common.h"
 
+#define SPLIT_USB_DETECT
+
 #define MASTER_RIGHT
 
-#define PIMORONI_TRACKBALL_SCALE 10
+#define PIMORONI_TRACKBALL_SCALE 30
 
 #define POINTING_DEVICE_INVERT_X true
-#define POINTING_DEVICE_INVERT_Y true 
-// #define POINTING_DEVICE_AUTO_MOUSE_ENABLE
+#define POINTING_DEVICE_INVERT_Y true
+
+#define POINTING_DEVICE_AUTO_MOUSE_ENABLE
+#define AUTO_MOUSE_DEFAULT_LAYER 5
+#define AUTO_MOUSE_TIME 200
+#define AUTO_MOUSE_DELAY 100
 
 #define TRACKBALL_LED_TIMEOUT 5000 // time in milliseconds
 
@@ -50,3 +56,4 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #define HOLD_ON_OTHER_KEY_PRESS
 // #define HOLD_ON_OTHER_KEY_PRESS_PER_KEY // get_hold_on_other_key_press
 //===================================================================================================//
+
