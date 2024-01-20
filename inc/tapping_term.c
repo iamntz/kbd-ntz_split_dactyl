@@ -5,7 +5,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record)
   switch (keycode)
   {
   case RALT_T(KC_BSPC):
-    return 250;
+    return 150;
 
   // case TD(NTZ_HOME):
   // case TD(NTZ_CD_UP):
@@ -71,6 +71,8 @@ void ntz_arrow_tap_dance(tap_dance_state_t *state, void *user_data)
     break;
   }
 }
+
+
 void ntz_php_tags_tap_dance(tap_dance_state_t *state, void *user_data)
 {
   switch (state->count)

@@ -32,7 +32,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define POINTING_DEVICE_AUTO_MOUSE_ENABLE
 #define AUTO_MOUSE_DEFAULT_LAYER 5
 #define AUTO_MOUSE_TIME 200
-#define AUTO_MOUSE_DELAY 100
+#define AUTO_MOUSE_DELAY 200
+#define AUTO_SHIFT_TIMEOUT_PER_KEY
 
 #define TRACKBALL_LED_TIMEOUT 5000 // time in milliseconds
 

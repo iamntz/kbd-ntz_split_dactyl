@@ -22,10 +22,7 @@
 uint8_t mod_state;
 
 static bool scrolling_mode = false;
-static bool pointing_nav_mode = false;
 uint8_t ntz_pointing_multiplier = 100;
-
-
 
 layer_state_t layer_state_set_user(layer_state_t state)
 {
@@ -56,7 +53,6 @@ layer_state_t layer_state_set_user(layer_state_t state)
   default:
     trackball_set_rgbw(0x00, 0x00, 0x00, 0x00);
     scrolling_mode = false;
-    pointing_nav_mode = false;
     ntz_pointing_multiplier = 100;
     break;
   }
@@ -80,11 +76,6 @@ report_mouse_t pointing_device_task_user(report_mouse_t mouse_report)
   return mouse_report;
 }
 
-void pointing_device_init_user(void)
-{
-  set_auto_mouse_layer(5);     // only required if AUTO_MOUSE_DEFAULT_LAYER is not set to index of <mouse_layer>
-  set_auto_mouse_enable(true); // always required before the auto mouse feature will work
-}
 
 // https://docs.qmk.fm/#/feature_advanced_keycodes?id=alt-escape-for-alt-tab
 bool process_record_user(uint16_t keycode, keyrecord_t *record)
