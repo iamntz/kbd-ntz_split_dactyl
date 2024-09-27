@@ -112,7 +112,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
   //       return false;
   //       // tap_code16(C(KC_V)); // Intercept hold function to send Ctrl-V
   //   }
-    
+
   }
 
   return true;

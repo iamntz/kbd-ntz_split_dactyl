@@ -9,7 +9,10 @@ enum custom_keycodes
     NTZ_ARROWS,
     NTZ_PHP_TAGS,
 
-    NTZ_TD_CLICK
+    NTZ_TD_CLICK,
+
+
+    NTZ_WIN_TILDA
 };
 
 enum
