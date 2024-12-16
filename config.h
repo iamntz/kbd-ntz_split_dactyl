@@ -19,6 +19,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #pragma once
 
 // #include "config_common.h"
+#define LAYER_STATE_8BIT
 
 #define SPLIT_USB_DETECT
 
