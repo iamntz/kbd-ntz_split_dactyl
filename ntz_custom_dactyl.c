@@ -1,20 +1,17 @@
 #include "quantum.h"
 #include "print.h"
 #include QMK_KEYBOARD_H
+#include "drivers/sensors/pimoroni_trackball.h"
 
 #include "ntz_custom_dactyl.h"
 
-#include "inc/rgb.c"
-#include "inc/mod_tap_interrupt.c"
 #include "inc/permissive_hold.c"
-#include "inc/tapping_term.c"
 #include "inc/hold_on_other_key_press.c"
-#include "inc/key_overrides.c"
 #include "inc/pointer.c"
 // #include "inc/leader_key.c"
+#include "inc/utils/rgb.c"
 #include "inc/utils/maybe_deactivate_mod_key_on_mod_key.c"
 
-#include "drivers/sensors/pimoroni_trackball.h"
 
 // #include "inc/utils/sarcasm_mode.c"
 
