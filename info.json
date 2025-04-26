@@ -1,11 +1,12 @@
 {
     "manufacturer": "iamntz",
-    "keyboard_name": "ntz_custom_dactyl",
+    "keyboard_name": "custom_dactyl",
     "maintainer": "iamntz",
     "bootloader": "caterina",
     "processor": "atmega32u4",
     "diode_direction": "ROW2COL",
     "debounce": 5,
+    "modules": [],
     "split": {
         "enabled": true,
         "soft_serial_pin": "D3",

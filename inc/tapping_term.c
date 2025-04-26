@@ -4,17 +4,16 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record)
 {
   switch (keycode)
   {
+    case LSFT_T(KC_SPC):
+      return 350;
+
+    // case LT(1, KC_SCLN):
+    case LT(3, KC_ENT):
     case RALT_T(KC_BSPC):
-    return 150;
+      return 150;
 
-  // case TD(NTZ_HOME):
-  // case TD(NTZ_CD_UP):
-  // case TD(NTZ_ARROWS):
-  // case TD(NTZ_PHP_TAGS):
-  //   return 150;
-
-  default:
-    return TAPPING_TERM;
+    default:
+      return TAPPING_TERM;
   }
 }
 

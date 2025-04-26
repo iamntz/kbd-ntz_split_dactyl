@@ -25,6 +25,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define MASTER_RIGHT
 
+
+
 #define PIMORONI_TRACKBALL_SCALE 30
 
 #define POINTING_DEVICE_INVERT_X true
@@ -42,10 +44,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define TRACKBALL_ADDRESS 0x0A
 #endif
 
-#define TRACKBALL_WRITE ((TRACKBALL_ADDRESS << 1) | I2C_WRITE)
-#define TRACKBALL_READ ((TRACKBALL_ADDRESS << 1) | I2C_READ)
+// #define TRACKBALL_WRITE ((TRACKBALL_ADDRESS << 1) | I2C_WRITE)
+// #define TRACKBALL_READ ((TRACKBALL_ADDRESS << 1) | I2C_READ)
 
-// #define MOUSE_EXTENDED_REPORT true
+#define MOUSE_EXTENDED_REPORT true
+
+#define MACCEL_TAKEOFF 2.0      // lower/higher value = curve takes off more smoothly/abruptly
+#define MACCEL_GROWTH_RATE 0.5 // lower/higher value = curve reaches its upper limit slower/faster
+#define MACCEL_OFFSET 2.2       // lower/higher value = acceleration kicks in earlier/later
+#define MACCEL_LIMIT 0.2        // lower limit of accel curve (minimum acceleration factor)
+
+#define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
 
 //===================================================================================================//
 // https://github.com/qmk/qmk_firmware/blob/master/docs/tap_hold.md#tapping-term
