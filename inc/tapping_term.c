@@ -8,7 +8,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record)
       return 350;
 
     // case LT(1, KC_SCLN):
-    case LT(3, KC_ENT):
+    // case LT(3, KC_ENT):
     case RALT_T(KC_BSPC):
       return 150;
 
@@ -41,7 +41,6 @@ void ntz_cd_up_tap_dance(tap_dance_state_t *state, void *user_data)
 {
   if (state->count > 1)
   {
-    // for (int i = 0; i < state->count - 1; ++i)
       SEND_STRING("../");
   }
   else
