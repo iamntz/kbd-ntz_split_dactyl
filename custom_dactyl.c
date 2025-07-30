@@ -12,9 +12,7 @@
 #include "inc/utils/rgb.c"
 #include "inc/utils/maybe_deactivate_mod_key_on_mod_key.c"
 
-#ifdef MACCEL_ENABLE
-#include "features/maccel/maccel.h"
-#endif
+
 // #include "inc/utils/sarcasm_mode.c"
 
 // #define MODS_MASK (MOD_BIT(KC_LSFT) | MOD_BIT(KC_LCTL))
@@ -61,11 +59,6 @@ layer_state_t layer_state_set_user(layer_state_t state)
 
 report_mouse_t pointing_device_task_user(report_mouse_t mouse_report)
 {
-  #ifdef MACCEL_ENABLE
-    mouse_report = pointing_device_task_maccel(mouse_report);
-  #endif
-
-
   if (scrolling_mode)
   {
     // mouse_report.x = (mouse_report.x * ntz_pointing_multiplier) / 100;
