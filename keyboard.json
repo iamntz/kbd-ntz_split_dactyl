@@ -55,8 +55,8 @@
     "tapping": {
         "permissive_hold": true,
         "term_per_key": true,
-        "ignore_mod_tap_interrupt": false,
-        "hold_on_other_key_press_per_key": false
+        "ignore_mod_tap_interrupt": true,
+        "hold_on_other_key_press_per_key": true
     },
     "leader_key": {
         "timing": true,

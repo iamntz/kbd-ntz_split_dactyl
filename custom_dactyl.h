@@ -1,8 +1,9 @@
 #pragma once
 #include "quantum.h"
 
-enum custom_keycodes
+enum keyboard_keycodes
 {
+    NTZ_GENERICS,
     NTZ_HOME,
     NTZ_CD_UP,
 
@@ -15,10 +16,6 @@ enum custom_keycodes
     NTZ_WIN_TILDA
 };
 
-enum
-{
-    NTZ_EMOJI,
-};
 
 #define XXX KC_NO
 

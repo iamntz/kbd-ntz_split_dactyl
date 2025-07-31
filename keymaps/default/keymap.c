@@ -14,7 +14,6 @@
 
 
 #ifdef TAP_DANCE_ENABLE
-  #include "inc/mod_tap_interrupt.c"
   #include "inc/tapping_term.c"
 #endif
 

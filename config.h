@@ -49,7 +49,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define MOUSE_EXTENDED_REPORT true
 
-#define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
+#define FLOW_TAP_TERM 10
 
 //===================================================================================================//
 // https://github.com/qmk/qmk_firmware/blob/master/docs/tap_hold.md#tapping-term

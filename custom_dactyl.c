@@ -5,13 +5,18 @@
 
 #include "custom_dactyl.h"
 
-#include "inc/permissive_hold.c"
-#include "inc/hold_on_other_key_press.c"
 #include "inc/pointer.c"
-// #include "inc/leader_key.c"
 #include "inc/utils/rgb.c"
 #include "inc/utils/maybe_deactivate_mod_key_on_mod_key.c"
 
+
+#define WITHOUT_MODS(...) \
+  do { \
+    const uint8_t _real_mods = get_mods(); \
+    clear_mods(); \
+    { __VA_ARGS__ } \
+    set_mods(_real_mods); \
+  } while (0)
 
 // #include "inc/utils/sarcasm_mode.c"
 
@@ -82,27 +87,35 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
 
   switch (keycode)
   {
-  case KC_LGUI:
-    if (maybe_deactivate_mod_key_on_mod_key(KC_LCBR, KC_RALT, keycode, record, 0)) // Instead of GUI Press [ when altGR is pressed ( for „)
-    {
-      return false;
-    }
-
-    if (record->event.pressed)
-    {
-      if (mod_state & MOD_MASK_CTRL || // Press shift+tab when ctrl or alt are active
-          mod_state & MOD_MASK_ALT)
-      {
-        tap_code16(LSFT(KC_TAB));
+    case NTZ_GENERICS:
+      if (record->event.pressed) {
+        WITHOUT_MODS({
+          SEND_STRING("<{}>" SS_TAP(X_LEFT) SS_TAP(X_LEFT));
+        });
         return false;
       }
-    }
 
-  case KC_TAB:
-    if (maybe_deactivate_mod_key_on_mod_key(KC_RCBR, KC_RALT, keycode, record, 0)) // // Press ] when altGR is pressed ( for ”)
-    {
-      return false;
-    }
+    case KC_LGUI:
+      if (maybe_deactivate_mod_key_on_mod_key(KC_LCBR, KC_RALT, keycode, record, 0)) // Instead of GUI Press [ when altGR is pressed ( for „)
+      {
+        return false;
+      }
+
+      if (record->event.pressed)
+      {
+        if (mod_state & MOD_MASK_CTRL || // Press shift+tab when ctrl or alt are active
+            mod_state & MOD_MASK_ALT)
+        {
+          tap_code16(LSFT(KC_TAB));
+          return false;
+        }
+      }
+
+    case KC_TAB:
+      if (maybe_deactivate_mod_key_on_mod_key(KC_RCBR, KC_RALT, keycode, record, 0)) // // Press ] when altGR is pressed ( for ”)
+      {
+        return false;
+      }
 
   // case MO(4):
   //   if (!record->tap.count && record->event.pressed) {

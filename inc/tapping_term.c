@@ -1,22 +1,5 @@
 #include "utils/send_string_with_mod.c"
 
-uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record)
-{
-  switch (keycode)
-  {
-    // case LT(3, KC_ENT):
-    case LSFT_T(KC_SPC):
-      return 350;
-
-    // case LT(3, KC_ENT):
-    // case LT(1, KC_SCLN):
-    case RALT_T(KC_BSPC):
-      return 150;
-
-    default:
-      return TAPPING_TERM;
-  }
-}
 
 void ntz_maybe_reset_mods(tap_dance_state_t *state, void *user_data)
 {
