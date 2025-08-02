@@ -9,15 +9,6 @@
 #include "inc/utils/rgb.c"
 #include "inc/utils/maybe_deactivate_mod_key_on_mod_key.c"
 
-
-#define WITHOUT_MODS(...) \
-  do { \
-    const uint8_t _real_mods = get_mods(); \
-    clear_mods(); \
-    { __VA_ARGS__ } \
-    set_mods(_real_mods); \
-  } while (0)
-
 // #include "inc/utils/sarcasm_mode.c"
 
 // #define MODS_MASK (MOD_BIT(KC_LSFT) | MOD_BIT(KC_LCTL))
@@ -79,6 +70,7 @@ report_mouse_t pointing_device_task_user(report_mouse_t mouse_report)
   return mouse_report;
 }
 
+
 // https://docs.qmk.fm/#/feature_advanced_keycodes?id=alt-escape-for-alt-tab
 bool process_record_user(uint16_t keycode, keyrecord_t *record)
 {
@@ -89,9 +81,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
   {
     case NTZ_GENERICS:
       if (record->event.pressed) {
-        WITHOUT_MODS({
-          SEND_STRING("<{}>" SS_TAP(X_LEFT) SS_TAP(X_LEFT));
-        });
+        SEND_STRING("<{}>" SS_TAP(X_LEFT) SS_TAP(X_LEFT));
         return false;
       }
 
@@ -127,4 +117,55 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
   }
 
   return true;
+}
+
+
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record)
+{
+  switch (keycode)
+  {
+    case QK_TAP_DANCE ... QK_TAP_DANCE_MAX:
+    case LSFT_T(KC_SPC):
+      return 350;
+
+    // case LT(3, KC_ENT):
+    // case LT(1, KC_SCLN):
+    // case RALT_T(KC_BSPC):
+    //   return 200;
+
+    default:
+      return TAPPING_TERM;
+  }
+}
+
+bool get_ignore_mod_tap_interrupt(uint16_t keycode, keyrecord_t *record)
+{
+  switch (keycode)
+  {
+    case LSFT_T(KC_SPC):
+    case LT(3, KC_ENT):
+    case LT(1, KC_SCLN):
+      // Do not force the mod-tap key press to be handled as a modifier
+      // if any other key was pressed while the mod-tap key is held down.
+      return true;
+    default:
+      // Force the mod-tap key press to be handled as a modifier if any
+      // other key was pressed while the mod-tap key is held down.
+      return false;
+  }
+}
+
+bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record)
+{
+  switch (keycode)
+  {
+    case RALT_T(KC_BSPC):
+    case LT(3, KC_ENT):
+    case LT(1, KC_SCLN):
+    // Immediately select the hold action when another key is pressed.
+      return true;
+
+    default:
+      return false;
+  }
 }

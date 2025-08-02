@@ -6,7 +6,9 @@
     "processor": "atmega32u4",
     "diode_direction": "ROW2COL",
     "debounce": 5,
-    "modules": [],
+    "modules": [
+        "getreuer/speculative_hold"
+    ],
     "split": {
         "enabled": true,
         "soft_serial_pin": "D3",

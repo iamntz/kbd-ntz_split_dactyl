@@ -1,35 +1,42 @@
 #include "utils/send_string_with_mod.c"
 
-
-void ntz_maybe_reset_mods(tap_dance_state_t *state, void *user_data)
-{
-  del_oneshot_mods(MOD_MASK_SHIFT);
-  unregister_mods(MOD_MASK_SHIFT);
-  clear_oneshot_mods();
-  clear_mods();
-};
-
 void ntz_home_tap_dance(tap_dance_state_t *state, void *user_data)
 {
-  if (state->count > 1)
+  switch (state->count)
   {
-    SEND_STRING("~/");
-  }
-  else
-  {
-    SEND_STRING("cd ~/");
+    case 1:
+      SEND_STRING("cd ~/");
+      break;
+
+    default:
+      SEND_STRING("~/");
+      break;
   }
 }
 
 void ntz_cd_up_tap_dance(tap_dance_state_t *state, void *user_data)
 {
-  if (state->count > 1)
+  switch (state->count)
   {
+    case 1:
+      SEND_STRING("cd ../");
+      break;
+
+    case 2:
       SEND_STRING("../");
-  }
-  else
-  {
-    SEND_STRING("cd ../");
+      break;
+
+    case 3:
+      SEND_STRING("../../");
+      break;
+
+    case 4:
+      SEND_STRING("../../../");
+      break;
+
+    default:
+      SEND_STRING("../../../../");
+      break;
   }
 }
 
@@ -37,20 +44,17 @@ void ntz_arrow_tap_dance(tap_dance_state_t *state, void *user_data)
 {
   switch (state->count)
   {
-  case 2:
-    SEND_STRING("->");
-    break;
+    case 1:
+      SEND_STRING("=>");
+      break;
 
-  case 3:
-  case 4:
-  case 5:
-    SEND_STRING("<=>");
-    break;
+    case 2:
+      SEND_STRING("->");
+      break;
 
-  case 1:
-  default:
-    SEND_STRING("=>");
-    break;
+    default:
+      SEND_STRING("<=>");
+      break;
   }
 }
 
@@ -59,20 +63,17 @@ void ntz_php_tags_tap_dance(tap_dance_state_t *state, void *user_data)
 {
   switch (state->count)
   {
-  case 2:
-    SEND_STRING("<?php");
-    break;
+    case 1:
+      SEND_STRING("<?=");
+      break;
 
-  case 3:
-  case 4:
-  case 5:
-    SEND_STRING("?>");
-    break;
+    case 2:
+      SEND_STRING("<?php");
+      break;
 
-  case 1:
-  default:
-    SEND_STRING("<?=");
-    break;
+    default:
+      SEND_STRING("?>");
+      break;
   }
 }
 
