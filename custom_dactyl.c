@@ -106,14 +106,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
       {
         return false;
       }
-
-  // case MO(4):
-  //   if (!record->tap.count && record->event.pressed) {
-  //       tap_code16(C(KC_B)); // Intercept tap function to send Ctrl-C
-  //       return false;
-  //       // tap_code16(C(KC_V)); // Intercept hold function to send Ctrl-V
-  //   }
-
   }
 
   return true;
@@ -125,13 +117,15 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record)
   switch (keycode)
   {
     case QK_TAP_DANCE ... QK_TAP_DANCE_MAX:
+      return 200;
+
     case LSFT_T(KC_SPC):
       return 350;
 
     // case LT(3, KC_ENT):
     // case LT(1, KC_SCLN):
     // case RALT_T(KC_BSPC):
-    //   return 200;
+      // return 100;
 
     default:
       return TAPPING_TERM;
@@ -145,9 +139,11 @@ bool get_ignore_mod_tap_interrupt(uint16_t keycode, keyrecord_t *record)
     case LSFT_T(KC_SPC):
     case LT(3, KC_ENT):
     case LT(1, KC_SCLN):
+    // case QK_TAP_DANCE ... QK_TAP_DANCE_MAX:
       // Do not force the mod-tap key press to be handled as a modifier
       // if any other key was pressed while the mod-tap key is held down.
       return true;
+
     default:
       // Force the mod-tap key press to be handled as a modifier if any
       // other key was pressed while the mod-tap key is held down.
@@ -161,7 +157,8 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record)
   {
     case RALT_T(KC_BSPC):
     case LT(3, KC_ENT):
-    case LT(1, KC_SCLN):
+    case QK_TAP_DANCE ... QK_TAP_DANCE_MAX:
+    // case LT(1, KC_SCLN):
     // Immediately select the hold action when another key is pressed.
       return true;
 

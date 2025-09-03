@@ -46,14 +46,18 @@ void ntz_arrow_tap_dance(tap_dance_state_t *state, void *user_data)
   {
     case 1:
       SEND_STRING("=>");
+      reset_tap_dance(state);
       break;
 
     case 2:
       SEND_STRING("->");
+      reset_tap_dance(state);
       break;
 
     default:
       SEND_STRING("<=>");
+      reset_tap_dance(state);
+
       break;
   }
 }

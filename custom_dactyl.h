@@ -4,6 +4,7 @@
 enum keyboard_keycodes
 {
     NTZ_GENERICS,
+
     NTZ_HOME,
     NTZ_CD_UP,
 
@@ -14,6 +15,11 @@ enum keyboard_keycodes
 
 
     NTZ_WIN_TILDA
+};
+
+enum more_keycodes
+{
+    NTZ_SARCASM = SAFE_RANGE
 };
 
 
