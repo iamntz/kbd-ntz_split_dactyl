@@ -7,7 +7,6 @@
     "diode_direction": "ROW2COL",
     "debounce": 5,
     "modules": [
-        "getreuer/speculative_hold"
     ],
     "split": {
         "enabled": true,
@@ -55,21 +54,18 @@
         "nkro": true
     },
     "tapping": {
-        "permissive_hold": true,
+        "term": 175,
+        "flow_tap_term": 10,
         "term_per_key": true,
+        "permissive_hold": true,
+        "permissive_hold_per_key": true,
         "ignore_mod_tap_interrupt": true,
+        "hold_on_other_key_press" : true,
         "hold_on_other_key_press_per_key": true
-    },
-    "leader_key": {
-        "timing": true,
-        "timeout": 800
-    },
-    "combo": {
-        "term": 200,
-        "count": 2
     },
     "usb": {
         "device_version": "1.0.0",
+        "polling_interval": 5,
         "pid": "0x3636",
         "vid": "0xFEED"
     },

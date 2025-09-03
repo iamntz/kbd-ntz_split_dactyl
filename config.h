@@ -25,8 +25,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define MASTER_RIGHT
 
-
-
 #define PIMORONI_TRACKBALL_SCALE 30
 
 #define POINTING_DEVICE_INVERT_X true
@@ -36,20 +34,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define AUTO_MOUSE_DEFAULT_LAYER 5
 #define AUTO_MOUSE_TIME 200
 #define AUTO_MOUSE_DELAY 200
-#define AUTO_SHIFT_TIMEOUT_PER_KEY
 
 #define TRACKBALL_LED_TIMEOUT 5000 // time in milliseconds
 
 #ifndef TRACKBALL_ADDRESS
-#define TRACKBALL_ADDRESS 0x0A
+  #define TRACKBALL_ADDRESS 0x0A
 #endif
 
 // #define TRACKBALL_WRITE ((TRACKBALL_ADDRESS << 1) | I2C_WRITE)
 // #define TRACKBALL_READ ((TRACKBALL_ADDRESS << 1) | I2C_READ)
 
 #define MOUSE_EXTENDED_REPORT true
-
-#define FLOW_TAP_TERM 10
 
 //===================================================================================================//
 // https://github.com/qmk/qmk_firmware/blob/master/docs/tap_hold.md#tapping-term
